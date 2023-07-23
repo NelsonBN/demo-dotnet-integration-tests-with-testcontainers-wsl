@@ -1,8 +1,8 @@
-# Demo running integration tests using Testcontainers with WSL
+# How to run integration tests using Testcontainers with WSL
 
 The purpose of this demo is to demonstrate how to run integration tests using Testcontainers with WSL. I won't explain how you should write your tests using Testcontainers, my goal is just to show how to run them in WSL.
 
-![Demo](./media/image.jpg)
+![Demo](./media/running_tests_with_testcontainers.jpg)
 
 ## Issue
 
@@ -72,3 +72,6 @@ If you also want to run the conditional compilation symbol, you need to configur
 In that configuration, we use the `COMPUTERNAME` environment variable to check if the tests are running locally or not, because in the CI pipeline, this variable is not defined. With this approach, we can set the `RUN_LOCAL` compilation symbol only when the tests are running locally.
 
 The remaining configurations of the `Testcontainers` are normal configurations that you also use when running directly on the host machine.
+
+
+[Medium Post](https://medium.com/@NelsonBN/how-to-run-integration-tests-using-testcontainers-with-wsl-52c77a2acbbb)
