@@ -1,0 +1,34 @@
+name: 'Demo integration tests with Testcontainers'
+
+trigger:
+- main
+
+
+stages:
+
+- stage: integrationTests
+  displayName: 'Integration tests'
+  jobs:
+
+  - job: tests
+    displayName: 'Tests'
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+
+    - task: UseDotNet@2
+      displayName: 'Install .NET SDK'
+      inputs:
+        version: '7.x'
+
+    - task: DotNetCoreCLI@2
+      displayName: 'Restore dependecies'
+      inputs:
+        command: 'restore'
+        projects: '**/**/*.csproj'
+
+    - task: DotNetCoreCLI@2
+      displayName: 'Running tests'
+      inputs:
+        command: test
+        projects: '**/*tests/*Tests.csproj'
